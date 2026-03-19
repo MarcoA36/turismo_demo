@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-
+import DestinationGallery from "./destination-gallery"
+import { destinations } from "@/data/destinations"
 export default function FeaturedDestinations() {
   const featured = [
     {
@@ -37,7 +38,7 @@ export default function FeaturedDestinations() {
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Destinos Destacados</h2>
         <p className="text-lg text-muted-foreground mb-12">Explora nuestros destinos más populares</p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {featured.map((dest) => (
             <div
               key={dest.id}
@@ -55,9 +56,9 @@ export default function FeaturedDestinations() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center">
+        </div> */}
+<DestinationGallery destinations={destinations} />
+        {/* <div className="text-center">
           <Link
             href="/destinos"
             className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition"
@@ -65,7 +66,7 @@ export default function FeaturedDestinations() {
             Ver todos los destinos
             <ArrowRight className="w-5 h-5" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   )

@@ -40,11 +40,11 @@ export default function DestinationDetailPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Link
-          href="/destinos"
+          href="/"
           className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 transition"
         >
           <ChevronLeft className="w-5 h-5" />
-          Volver a destinos
+          Volver
         </Link>
 
         {/* Header */}
