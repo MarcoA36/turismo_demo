@@ -33,7 +33,6 @@ export const destinations = [
     image: "https://images.unsplash.com/photo-1548013146-72479768bada?w=1200&auto=format&fit=crop&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&auto=format&fit=crop&q=75",
-      "https://images.unsplash.com/photo-1587135991058-8816c4b7c8a0?w=800&auto=format&fit=crop&q=75",
       "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&auto=format&fit=crop&q=75",
     ],
     description: "El Taj Mahal es una obra maestra...",
@@ -128,9 +127,8 @@ export const destinations = [
     reviews: 634,
     image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&auto=format&fit=crop&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=800&auto=format&fit=crop&q=75",
-      "https://images.unsplash.com/photo-1526481280691-3c2b4b4b9b04?w=800&auto=format&fit=crop&q=75",
-      "https://images.unsplash.com/photo-1519183071298-a2962ae0b2f9?w=800&auto=format&fit=crop&q=75",
+ "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&auto=format&fit=crop&q=80",
+ "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200&auto=format&fit=crop&q=80",
     ],
     description: "Japón combina lo antiguo con lo moderno...",
     highlights: [
