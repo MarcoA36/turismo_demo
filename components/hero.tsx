@@ -151,7 +151,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="w-full min-h-[100vh] flex items-center bg-background">
+    <section className="w-full min-h-[90vh] flex items-center bg-background">
       <div className="max-w-7xl mx-auto w-full px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         
         {/* TEXTO */}
