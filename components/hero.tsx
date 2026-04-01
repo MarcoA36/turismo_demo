@@ -111,21 +111,21 @@ export default function Hero() {
       title: "Caribe 50% OFF",
       description: "Paquetes completos a destinos caribeños",
       discount: "50%",
-      image: "/caribbean-resort.jpg",
+      image: "/caribbean-resort.webp",
     },
     {
       id: 2,
       title: "Europa Todo Incluido",
       description: "Tour por 10 países europeos",
       discount: "Hasta 40%",
-      image: "/european-cities.jpg",
+      image: "/european-cities.webp",
     },
     {
       id: 3,
       title: "Safari en África",
       description: "Experiencia única en la naturaleza",
       discount: "35%",
-      image: "/african-safari.jpg",
+      image: "/african-safari.webp",
     },
   ]
 
