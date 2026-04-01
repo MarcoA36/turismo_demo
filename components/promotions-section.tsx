@@ -24,7 +24,7 @@ export default function PromotionsSection() {
   ]
 
   return (
-    <section id="promociones" className="py-16 md:py-24 bg-muted">
+    <section id="promociones" className="py-16 md:py-24 bg-secondary/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Promociones Especiales</h2>
         <p className="text-lg text-muted-foreground mb-12">
@@ -42,7 +42,7 @@ export default function PromotionsSection() {
                 alt={promo.title}
                 className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition" />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-300 group-hover:from-black/90" />
               <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
                 <div className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-bold w-fit">
                   {promo.discount} Descuento

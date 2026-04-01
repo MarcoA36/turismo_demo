@@ -7,12 +7,14 @@ import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { destinations } from "@/data/destinations"
 import { ChevronLeft, ChevronRight, MapPin, Calendar, Users } from "lucide-react"
+import Image from "next/image"
 
 export default function DestinationDetailPage() {
   const params = useParams()
   const id = Number.parseInt(params.id as string)
   const destination = destinations.find((d) => d.id === id)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
   if (!destination) {
     return (
@@ -70,7 +72,7 @@ export default function DestinationDetailPage() {
           {/* Main content */}
           <div className="lg:col-span-2">
             {/* Image Gallery */}
-            <div className="mb-12">
+            {/* <div className="mb-12">
               <div className="relative bg-black rounded-lg overflow-hidden mb-4 h-96 md:h-[500px]">
                 <img
                   src={destination.gallery[selectedImageIndex] || "/placeholder.svg"}
@@ -78,7 +80,6 @@ export default function DestinationDetailPage() {
                   className="w-full h-full object-cover cursor-pointer"
                 />
 
-                {/* Navigation buttons */}
                 {destination.gallery.length > 1 && (
                   <>
                     <button
@@ -93,8 +94,6 @@ export default function DestinationDetailPage() {
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>
-
-                    {/* Image counter */}
                     <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
                       {selectedImageIndex + 1} / {destination.gallery.length}
                     </div>
@@ -102,7 +101,6 @@ export default function DestinationDetailPage() {
                 )}
               </div>
 
-              {/* Thumbnail gallery */}
               {destination.gallery.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto pb-2">
                   {destination.gallery.map((img, idx) => (
@@ -122,7 +120,68 @@ export default function DestinationDetailPage() {
                   ))}
                 </div>
               )}
+            </div> */}
+
+
+                        <div className="mb-12">
+              <div
+                className="relative h-96 md:h-[500px] rounded-lg overflow-hidden cursor-pointer"
+                onClick={() => setIsLightboxOpen(true)}
+              >
+                <Image
+                  src={destination.gallery[selectedImageIndex]}
+                  alt={destination.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+                {/* Flechas */}
+                {destination.gallery.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        prevImage()
+                      }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full"
+                    >
+                      <ChevronLeft />
+                    </button>
+
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        nextImage()
+                      }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full"
+                    >
+                      <ChevronRight />
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {/* Thumbnails */}
+              <div className="flex gap-2 mt-4 overflow-x-auto">
+                {destination.gallery.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedImageIndex(idx)}
+                    className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 ${
+                      idx === selectedImageIndex
+                        ? "border-primary"
+                        : "border-transparent"
+                    }`}
+                  >
+                    <Image src={img} alt="" fill className="object-cover" />
+                  </button>
+                ))}
+              </div>
             </div>
+
 
             {/* Destination description */}
             <section className="mb-12">
@@ -237,8 +296,44 @@ export default function DestinationDetailPage() {
           </div>
         </section>
       </div>
+      {isLightboxOpen && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+          <button
+            onClick={() => setIsLightboxOpen(false)}
+            className="absolute top-6 right-6 text-white text-3xl"
+          >
+            ✕
+          </button>
 
+          <div className="relative w-full max-w-5xl h-[80vh]">
+            <Image
+              src={destination.gallery[selectedImageIndex]}
+              alt=""
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <button
+            onClick={prevImage}
+            className="absolute left-6 text-white text-4xl"
+          >
+            <ChevronLeft />
+          </button>
+
+          <button
+            onClick={nextImage}
+            className="absolute right-6 text-white text-4xl"
+          >
+            <ChevronRight />
+          </button>
+        </div>
+      )}
       <Footer />
     </main>
   )
 }
+
+
+
+
