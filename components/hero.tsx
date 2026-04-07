@@ -4,104 +4,79 @@ import Image from "next/image"
 
 export default function Hero() {
   return (
-    // <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden">
 
-    //   {/* IMAGEN DE FONDO */}
-    //   <Image
-    //     src="/collage-hero.png"
-    //     alt="Destinos"
-    //     fill
-    //     priority
-    //     className="object-cover"
-    //   />
+      {/* IMAGEN BASE */}
+      <Image
+        src="/hero-turismo-2.webp"
+        alt="Destinos por Argentina"
+        fill
+        priority
+        className="object-cover scale-105 animate-[slowZoom_20s_ease-in-out_infinite]"
+      />
 
-    //   {/* OVERLAY OSCURO */}
-    //   <div className="absolute inset-0 bg-black/20" />
+      {/* OVERLAY OSCURO GRADIENTE (mejor contraste) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
 
-    //   {/* CONTENIDO */}
-    //   <div className="relative z-10 text-center px-6 max-w-3xl">
+      {/* LUZ RADIAL CENTRAL (focus visual) */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-[700px] h-[400px] bg-white/10 blur-3xl rounded-full opacity-40" />
+      </div>
 
-    //     <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-    //       Descubrí destinos increíbles
-    //     </h1>
+      {/* GRAIN / TEXTURA (detalle premium) */}
+      <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('/noise.png')]" />
 
-    //     <p className="text-lg md:text-xl text-gray-200 mb-8">
-    //       Viajes únicos, promociones exclusivas y experiencias inolvidables.
-    //     </p>
+      {/* CONTENIDO */}
+      <div className="relative z-10 text-center px-6 max-w-4xl">
 
-    //     <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+          Explorá Argentina
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500">
+            como nunca antes
+          </span>
+        </h1>
 
-    //       <a
-    //         href="#promociones"
-    //         className="px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition"
-    //       >
-    //         Ver Promociones
-    //       </a>
+        <h3 className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+          Viajes a los destinos más increíbles del país: sierras, cataratas,
+          Patagonia y el norte argentino.
+        </h3>
 
-    //       <a
-    //         href="#contacto"
-    //         className="px-8 py-3 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition"
-    //       >
-    //         Consultar
-    //       </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
-    //     </div>
-    //   </div>
+          <a
+            href="#promociones"
+            className="px-8 py-4 rounded-xl font-semibold text-lg bg-white text-black hover:bg-white/90 transition shadow-xl shadow-black/40"
+          >
+            Ver viajes
+          </a>
 
-    //   {/* DEGRADADO ABAJO (para que corte lindo con la sección siguiente) */}
-    //   <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
+          <a
+            href="#contacto"
+            className="px-8 py-4 rounded-xl font-semibold text-lg border border-white/40 text-white hover:bg-white/10 backdrop-blur transition"
+          >
+            Consultar ahora
+          </a>
 
-    // </section>
-    <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
+        </div>
+      </div>
 
-  {/* IMAGEN */}
-  <Image
-    src="/collage-hero.webp"
-    alt="Destinos"
-    fill
-    priority
-    className="object-cover"
-  />
+      {/* SCROLL INDICATOR */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 animate-bounce">
+        ↓
+      </div>
 
-  {/* GRADIENTE SUAVE GLOBAL */}
+      {/* GRADIENTE INFERIOR */}
+      {/* <div className="absolute bottom-0 left-0 w-full h-md-30 bg-gradient-to-t from-background to-transparent" /> */}
 
-  {/* HALO DETRÁS DEL TEXTO */}
-  <div className="absolute inset-0 flex items-center justify-center">
-    <div className="w-full max-w-3xl h-[60%] bg-black/50 blur-3xl opacity-60 rounded-full" />
-  </div>
+      {/* ANIMACIÓN CUSTOM */}
+      <style jsx>{`
+        @keyframes slowZoom {
+          0% { transform: scale(1.05); }
+          50% { transform: scale(1.1); }
+          100% { transform: scale(1.05); }
+        }
+      `}</style>
 
-  {/* CONTENIDO */}
-  <div className="relative z-10 text-center p-6 max-w-3xl bg-black/30">
-
-    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
-      Descubrí destinos increíbles
-    </h1>
-
-    <p className="text-lg md:text-xl text-gray-200 mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-      Viajes únicos, promociones exclusivas y experiencias inolvidables.
-    </p>
-
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="#promociones"
-        className="px-8 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition"
-      >
-        Ver Promociones
-      </a>
-
-      <a
-        href="#contacto"
-        className="px-8 py-3 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition"
-      >
-        Consultar
-      </a>
-    </div>
-
-  </div>
-
-  {/* CORTE ABAJO */}
-  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
-
-</section>
+    </section>
   )
 }
