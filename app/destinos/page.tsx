@@ -7,7 +7,7 @@ import { destinations } from "@/data/destinations"
 
 export default function DestinosPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen py-20 bg-background">
       <Navigation />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-2 text-balance">Todos nuestros destinos</h1>
